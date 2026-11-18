@@ -1,0 +1,80 @@
+{
+  "metric_spec_version": "2.2",
+  "public_traps_blocked": 4,
+  "extra_traps_blocked": 2,
+  "results": [
+    {
+      "trap": "evaluator_errors_as_nan",
+      "exit_code": 1,
+      "reasons": [
+        "INTEGRITY PR: missing/invalid graded row value for refund_amount_correct",
+        "INTEGRITY PR: missing/invalid graded row value for pass_rate",
+        "INTEGRITY PR: missing/invalid graded row value for proposal_amount_correct"
+      ]
+    },
+    {
+      "trap": "dropped_failing_rows",
+      "exit_code": 1,
+      "reasons": [
+        "INTEGRITY PR: row count differs from items x seeds",
+        "INTEGRITY PR: non-finite or missing aggregate metric",
+        "INTEGRITY PR: incomplete item x seed coverage",
+        "INTEGRITY PR: too few trials for pass_at_3",
+        "INTEGRITY PR: too few trials for pass_hat_3",
+        "INTEGRITY PR: too few trials for pass_at_5",
+        "INTEGRITY PR: too few trials for pass_hat_5",
+        "INTEGRITY PR item/seed set differs from baseline"
+      ]
+    },
+    {
+      "trap": "cherry_picked_seeds",
+      "exit_code": 1,
+      "reasons": [
+        "INTEGRITY PR: seed set differs from spec",
+        "INTEGRITY PR: non-finite or missing aggregate metric",
+        "INTEGRITY PR: too few trials for pass_at_3",
+        "INTEGRITY PR: too few trials for pass_hat_3",
+        "INTEGRITY PR: too few trials for pass_at_5",
+        "INTEGRITY PR: too few trials for pass_hat_5",
+        "INTEGRITY PR item/seed set differs from baseline"
+      ]
+    },
+    {
+      "trap": "loosened_spec",
+      "exit_code": 1,
+      "reasons": [
+        "INTEGRITY ratchet: metrics db_fact_kept min loosened (0.95 -> 0.65)",
+        "INTEGRITY ratchet: metrics refund_amount_correct no_significant_drop removed",
+        "INTEGRITY ratchet: metrics refund_amount_correct min loosened (0.9 -> 0.6)",
+        "INTEGRITY ratchet: metrics pass_rate no_significant_drop removed",
+        "INTEGRITY ratchet: metrics pass_rate min loosened (0.85 -> 0.55)",
+        "INTEGRITY ratchet: metrics pass_hat_5 min loosened (0.8 -> 0.5)",
+        "INTEGRITY ratchet: metrics reply_amount_correct no_significant_drop removed",
+        "INTEGRITY ratchet: metrics reply_amount_correct min loosened (1.0 -> 0.7)",
+        "INTEGRITY ratchet: metrics proposal_amount_correct no_significant_drop removed",
+        "INTEGRITY ratchet: metrics proposal_amount_correct min loosened (0.9 -> 0.6)",
+        "INTEGRITY ratchet: slices ('money_movement', 'pass_rate') removed or changed identity",
+        "INTEGRITY ratchet: slices ('adversarial', 'pass_rate') removed or changed identity",
+        "INTEGRITY ratchet: slices ('denial', 'pass_rate') removed or changed identity"
+      ]
+    },
+    {
+      "trap": "duplicate_rows_extra",
+      "exit_code": 1,
+      "reasons": [
+        "INTEGRITY PR: duplicate item/seed ('E-001', 11)",
+        "INTEGRITY PR: incomplete item x seed coverage",
+        "INTEGRITY PR: too few trials for pass_at_5",
+        "INTEGRITY PR: too few trials for pass_hat_5",
+        "INTEGRITY PR item/seed set differs from baseline"
+      ]
+    },
+    {
+      "trap": "evaluator_failure_green_extra",
+      "exit_code": 1,
+      "reasons": [
+        "INTEGRITY PR: evaluator_failures missing or non-empty"
+      ]
+    }
+  ]
+}

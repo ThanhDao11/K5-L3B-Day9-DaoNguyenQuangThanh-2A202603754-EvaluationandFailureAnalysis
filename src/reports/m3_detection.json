@@ -1,6 +1,6 @@
 {
   "eval_set_sha": "839254d17d8e",
-  "metric_spec_version": "1.1",
+  "metric_spec_version": "1.2",
   "seeds": [
     11,
     22,
@@ -32,7 +32,7 @@
       "trials": 70,
       "faulty": 25,
       "detected_faulty": 25,
-      "code_only_detected_faulty": 20,
+      "code_only_detected_faulty": 25,
       "false_positives": 0
     },
     {
@@ -48,7 +48,7 @@
       "trials": 70,
       "faulty": 7,
       "detected_faulty": 7,
-      "code_only_detected_faulty": 4,
+      "code_only_detected_faulty": 7,
       "false_positives": 0
     },
     {
@@ -88,7 +88,7 @@
       "trials": 70,
       "faulty": 35,
       "detected_faulty": 35,
-      "code_only_detected_faulty": 20,
+      "code_only_detected_faulty": 35,
       "false_positives": 0
     },
     {
@@ -96,7 +96,7 @@
       "trials": 70,
       "faulty": 15,
       "detected_faulty": 15,
-      "code_only_detected_faulty": 10,
+      "code_only_detected_faulty": 15,
       "false_positives": 0
     },
     {
@@ -127,6 +127,6 @@
   "faulty": 210,
   "detected_faulty": 210,
   "detection_rate": 1.0,
-  "code_only_detection_rate": 0.8666666666666667,
+  "code_only_detection_rate": 1.0,
   "fixed_false_positive_rate": 0.0
 }

@@ -66,6 +66,20 @@ class RefundAmountCorrect(Evaluator[Any, Trial]):
 
 
 @dataclass
+class ProposalAmountCorrect(Evaluator[Any, Trial]):
+    """Check the gross policy proposal before the host applies caps/history."""
+
+    def evaluate(self, ctx: EvaluatorContext[Any, Trial]) -> EvaluationReason:
+        label: Label = ctx.expected_output or {}
+        actual = ctx.output["result"].get("proposal_amount")
+        expected = label["proposal_amount"]
+        valid = isinstance(actual, int) and not isinstance(actual, bool) and actual >= 0
+        correct = valid and actual == expected
+        return EvaluationReason(value=correct,
+                                reason=f"proposal={actual!r}, expected={expected}" if not correct else None)
+
+
+@dataclass
 class DbFactKept(Evaluator[Any, Trial]):
     """Step level (one check per trace event). Fails when any event overrides a DB fact with a ticket claim."""
 
@@ -117,4 +131,5 @@ GRADERS: dict[str, type[Evaluator]] = {
     "refund_amount_correct": RefundAmountCorrect,
     "db_fact_kept": DbFactKept,
     "reply_amount_correct": ReplyAmountCorrect,
+    "proposal_amount_correct": ProposalAmountCorrect,
 }

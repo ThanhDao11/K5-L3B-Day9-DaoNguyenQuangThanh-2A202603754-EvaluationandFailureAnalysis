@@ -57,12 +57,13 @@ Quy tắc: tiền và phê duyệt luôn chấm bằng code. Judge chỉ dùng c
 - Baseline phải đáng tin, đủ item × seed, cùng eval_set_sha. Integrity chặn report thiếu/trùng dòng, metric lỗi hoặc slice bị đổi; ratchet cần `--base-spec` từ nguồn baseline, không nới ngưỡng trên cùng eval-set version.
 - Gate exit 1 → **không merge**. Người xử lý: học viên sở hữu fork. Waiver chưa có người duyệt, mặc định không áp dụng.
 - M3 detection: 20/20 = 100%, báo nhầm 0/70 sau khi thêm ProposalAmountCorrect; C-013 proposal sai nhưng ledger đúng đã được bắt.
+- CI xác nhận commit `0a0a2cf`: `eval-gate` và `eval-gate-v2` đều success tại [run 44245085565](https://github.com/ThanhDao11/K5-L3B-Day9-DaoNguyenQuangThanh-2A202603754-EvaluationandFailureAnalysis/actions/runs/44245085565); các bước Advanced đã chạy đầy đủ.
 
 ## 6. Bằng chứng còn thiếu / rủi ro mở
 
 - [ ] Chưa có dữ liệu người dùng thật; MockLLM không đại diện model thật.
 - [ ] 14/28 item và 5 seed: chưa bảo đảm bắt lỗi hiếm. Judge replay chưa có held-out mới.
-- [ ] Swarm chưa ghi reply; integrity không chứng minh nguồn dữ liệu trung thực; CI v2 và bộ chấm ẩn chưa xác nhận.
+- [ ] Swarm chưa ghi reply; integrity không chứng minh nguồn dữ liệu trung thực; bộ chấm ẩn chưa xác nhận.
 
 ## 7. Khi nào lên v1.2
 

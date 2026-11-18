@@ -2,8 +2,8 @@
 
 Card này đi kèm mỗi báo cáo và được dùng lại ở Day 10.
 
-- **Run ID / eval set SHA:** baseline `E-swarm-20261118-8b9d` · PR swarm `E-swarm-20261118-8b9d` · fixed `E-fixed-20261118-8b9d` · regression `E-seeded_regression-20261118-8b9d` · SHA `8b9da500d6da`. File tương ứng trong `src/reports/`: `baseline_v1.json`, `eval_pr.json`, `eval_fixed.json`, `eval_seeded_regression.json`.
-- **Phiên bản:** code (commit) `cda8b13` · eval set v1 (sha `8b9da500d6da`) · metric_spec 1.1 · grader (commit) `cda8b13` · seeds 11/22/33/44/55. Commit ghi nhận code và report đã sinh; harness không tự ghi commit vào report.
+- **Run ID / eval set SHA:** baseline `E-swarm-20261118-8392` · PR swarm `E-swarm-20261118-8392` · fixed `E-fixed-20261118-8392` · regression `E-seeded_regression-20261118-8392` · SHA `839254d17d8e`. File tương ứng trong `src/reports/`: `baseline_v1.json`, `eval_pr.json`, `eval_fixed.json`, `eval_seeded_regression.json`.
+- **Phiên bản:** code (commit) `ee089b6` · eval set v1 (sha `839254d17d8e`) · metric_spec 1.1 · grader (commit) `ee089b6` · seeds 11/22/33/44/55. Report được sinh lại sau khi chuẩn hóa LF; harness không tự ghi commit vào report.
 - **Eval set:** v1, 14 item × 5 seed, nguồn lab8_public; nhãn: labels_v1.json
 - **Metric & ngưỡng:** (trích `src/config/metric_spec.yaml`)
 
@@ -21,10 +21,10 @@ Card này đi kèm mỗi báo cáo và được dùng lại ở Day 10.
 
 | Report / run ID | pass_rate | refund_amount_correct | reply_amount_correct | Δ pass_rate [CI 95%] | Gate local |
 |---|---|---|---|---|---|
-| baseline_v1 / `E-swarm-20261118-8b9d` | 0.9857 | 0.9857 | 1.0 | +0.000000 [+0.000000, +0.000000] | mốc so sánh |
-| eval_pr / `E-swarm-20261118-8b9d` | 0.9857 | 0.9857 | 1.0 | +0.000000 [+0.000000, +0.000000] | exit 0 |
-| eval_fixed / `E-fixed-20261118-8b9d` | 1.0 | 1.0 | 1.0 | +0.014286 [+0.000000, +0.042857] | exit 0 |
-| eval_seeded_regression / `E-seeded_regression-20261118-8b9d` | 0.7143 | 0.8571 | 0.7857 | −0.271429 [−0.500000, −0.057143] | exit 1 |
+| baseline_v1 / `E-swarm-20261118-8392` | 0.9857 | 0.9857 | 1.0 | +0.000000 [+0.000000, +0.000000] | mốc so sánh |
+| eval_pr / `E-swarm-20261118-8392` | 0.9857 | 0.9857 | 1.0 | +0.000000 [+0.000000, +0.000000] | exit 0 |
+| eval_fixed / `E-fixed-20261118-8392` | 1.0 | 1.0 | 1.0 | +0.014286 [+0.000000, +0.042857] | exit 0 |
+| eval_seeded_regression / `E-seeded_regression-20261118-8392` | 0.7143 | 0.8571 | 0.7857 | −0.271429 [−0.500000, −0.057143] | exit 1 |
 
 - **Judge:** tone_ok κ=0.757, P=0.857, R=0.8; dùng cho giọng điệu. Helpful bị loại vì κ=0.375 và R=0.3 dưới sàn, bỏ sót 21/30 lỗi; P=1.0 không bù được recall thấp. Xem [docs/judge_audit.md](judge_audit.md).
 - **Trace case:** [docs/trace_case.md](trace_case.md), `seeded_regression C-002@11`: event 3 `model_override` đổi `delay_days` từ DB 2 thành 5; regression test `tests/test_lab9_reply_amount.py::test_trace_case_ticket_override_is_caught_against_fixed` bắt bản lỗi và cho `fixed` qua.

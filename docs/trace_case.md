@@ -14,12 +14,12 @@ Lệnh in ra ba phần: các event trong trace (`reply`, `decision`, `model_over
 
 | Trường | Nội dung |
 |---|---|
-| Trial | `seeded_regression C-002@11` (`E-002`, seed 11), run ID `E-seeded_regression-20261118-8b9d` trong `src/reports/eval_seeded_regression.json`; eval set SHA `8b9da500d6da`, spec 1.1 |
+| Trial | `seeded_regression C-002@11` (`E-002`, seed 11), run ID `E-seeded_regression-20261118-8392` trong `src/reports/eval_seeded_regression.json`; eval set SHA `839254d17d8e`, spec 1.1 |
 | Triệu chứng | Ledger ghi 20.000đ và 1 refund, nhãn yêu cầu 0đ và 0 refund; result `resolved` thay vì `denied`. `RefundAmountCorrect`, `DbFactKept`, `TrialPass` đều không đạt. Reply nói 20.000đ khớp ledger nên metric FM-08 đạt: câu trả lời khớp ledger không chứng minh quyết định hoàn là đúng. |
 | Bước sai đầu tiên | Event **3**, `model_override`, payload `{"delay_days": 5}` |
 | Vì sao là bước *đầu tiên* | Event 1 handoff đúng claim và công cụ chỉ đọc; event 2 investigator trả đúng O-202, `delay_days=2`. Event 3 lấy 5 ngày từ ticket thay DB; event 4 quote 20.000đ là hậu quả của dữ kiện đã bị đổi. |
 | Failure mode | **FM-03 ticket_trust**, xem `docs/failure_taxonomy.md` |
-| Đối chứng | `fixed C-002@11`, report `E-fixed-20261118-8b9d`: không có `model_override`; event 3 là quote = 0, reason `no_entitlement`; ledger = 0, result `denied`; các grader nêu trên đạt. |
+| Đối chứng | `fixed C-002@11`, report `E-fixed-20261118-8392`: không có `model_override`; event 3 là quote = 0, reason `no_entitlement`; ledger = 0, result `denied`; các grader nêu trên đạt. |
 | Regression test | `tests/test_lab9_reply_amount.py::test_trace_case_ticket_override_is_caught_against_fixed`: chạy thật cả hai shape trên store mới; xác nhận DB = 2, event sai = 5, ledger lỗi = 20.000đ; `RefundAmountCorrect` và `DbFactKept` trả False cho bản lỗi, True cho `fixed`. |
 | Chưa chắc chắn | Trace không ghi suy nghĩ nội bộ; chỉ chứng minh bước sai đầu tiên quan sát được. Đây là MockLLM với công tắc lỗi công khai, không chứng minh tần suất lỗi của LLM thật. |
 

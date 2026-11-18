@@ -1,0 +1,3 @@
+# Eval-set hashes use raw bytes: keep generated data identical on Windows/Linux.
+src/data/eval/*.jsonl text eol=lf
+src/data/eval/labels*.json text eol=lf
